@@ -18,6 +18,16 @@ const global = css`
   img {
     max-width: 100%;
   }
+  a {
+    &,
+    &active,
+    &:focus,
+    &:hover,
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
 `;
 
 const root = css`

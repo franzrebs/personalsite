@@ -19,15 +19,6 @@ const listItem = css`
   }
 `;
 
-const link = css`
-  &,
-  &active,
-  &:focus,
-  &:hover,
-  &:visited {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
+const link = css``;
 
 export default { list, listItem, link };

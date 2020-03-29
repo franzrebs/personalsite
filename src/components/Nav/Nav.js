@@ -14,7 +14,7 @@ export default () => {
           { href: '/bio', name: 'Bio' },
           { href: '/feed', name: 'Feed' },
         ].map(({ href, name }) => (
-          <li css={styles.listItem}>
+          <li css={styles.listItem} key={`nav-item-${name}`}>
             <a css={styles.link} href={href}>
               {name}
             </a>
