@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default ({ html }) => {
-  <div dangerouslySetInnerHTML={{ __html: html }} />;
+export default ({ image }) => {
+  return <img src={image.url} alt={image.alt} />;
 };

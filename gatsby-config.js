@@ -12,6 +12,14 @@ module.exports = {
       options: {
         repositoryName: `francesrebollidodotcom`,
         accessToken: `${process.env.PRISMIC_ACCESS_TOKEN}`,
+        pages: [
+          {
+            type: `Blog_post`,
+            match: `/blog/:uid`,
+            path: '/blog-preview',
+            component: require.resolve('./src/templates/blogPost.js'),
+          },
+        ],
       },
     },
     {
