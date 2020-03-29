@@ -18,7 +18,7 @@ export default ({ data }) => {
         {blogPosts.map(({ node }) => {
           const { date, title, _meta } = node;
           return (
-            <li css={styles.listItem}>
+            <li css={styles.listItem} key={`blog-${_meta.uid}`}>
               <Link css={styles.link} to={linkResolver(_meta)}>
                 <span css={styles.date}>
                   {moment(Date(date)).format('MMM DD, YYYY')}
