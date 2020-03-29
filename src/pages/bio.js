@@ -2,4 +2,6 @@ import React from 'react';
 
 import Layout from '../components/Layout';
 
-export default () => <Layout title="Index">Index</Layout>;
+export default () => {
+  return <Layout title="Bio">Bio</Layout>;
+};
