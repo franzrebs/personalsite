@@ -39,4 +39,10 @@ const main = css`
   padding: 32px 16px;
 `;
 
-export default { global, root, main };
+const pageTitle = css``;
+
+const pageContent = css`
+  max-width: 1240px;
+`;
+
+export default { global, root, main, pageTitle, pageContent };

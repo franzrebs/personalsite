@@ -14,6 +14,18 @@ module.exports = {
             path: '/blog-preview',
             component: require.resolve('./src/templates/blogPost.js'),
           },
+          {
+            type: `Lens_album`,
+            match: `/lens/album/:uid`,
+            path: '/lens-album-preview',
+            component: require.resolve('./src/templates/lensAlbum.js'),
+          },
+          {
+            type: `Lens_item`,
+            match: `/lens/:uid`,
+            path: '/lens-item-preview',
+            component: require.resolve('./src/templates/lensItem.js'),
+          },
         ],
       },
     },
@@ -27,6 +39,9 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: `gatsby-plugin-emotion`,
     },
     `gatsby-plugin-react-helmet`,
     {
