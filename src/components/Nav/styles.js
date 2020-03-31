@@ -1,13 +1,13 @@
 import { css } from '@emotion/core';
 
 const list = css`
-  margin: 32px 0 0;
+  margin: 54px 0 0;
   padding: 0;
   list-style: none;
 `;
 
 const listItem = css`
-  padding: 8px 16px;
+  padding: 0 4px;
   li a {
     text-decoration: none;
   }

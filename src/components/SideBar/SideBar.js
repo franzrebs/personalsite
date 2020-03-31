@@ -27,10 +27,9 @@ export default () => {
   const site_metadata = data.prismic.allSite_metadatas.edges.slice(0, 1).pop();
   if (!site_metadata) return null;
 
-  // //const { site_metadata } = data.prismic;
   return (
     <div css={styles.root}>
-      <div>{site_metadata.node.title}</div>
+      <a href="/">{site_metadata.node.title}</a>
       <Nav />
     </div>
   );

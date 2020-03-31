@@ -51,10 +51,9 @@ export default ({ data }) => {
   const title = blogPost.node.title;
   const date = moment(Date(blogPost.node.date)).format('MMM DD, YYYY');
   const body = blogPost.node.body;
-
+  const titleText = RichText.asText(title);
   return (
-    <Layout title={title[0].text}>
-      <h1>{RichText.asText(title)}</h1>
+    <Layout title={titleText} pageTitle={titleText}>
       <time>{date}</time>
       <div>
         <Slices body={body} />

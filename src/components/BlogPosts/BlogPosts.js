@@ -13,10 +13,10 @@ export default ({ blogPosts }) => (
       return (
         <li css={styles.listItem} key={`blog-${_meta.uid}`}>
           <Link css={styles.link} to={linkResolver(_meta)}>
-            <span css={styles.date}>
+            <time css={styles.date}>
               {moment(Date(date)).format('MMM DD, YYYY')}
-            </span>
-            <h3 css={styles.title}>{RichText.asText(title)}</h3>
+            </time>
+            <h2 css={styles.title}>{RichText.asText(title)}</h2>
           </Link>
         </li>
       );

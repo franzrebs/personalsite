@@ -1,5 +1,6 @@
 import React from 'react';
-import { RichText } from 'prismic-reactjs';
+import { Date, RichText } from 'prismic-reactjs';
+import moment from 'moment';
 
 import PhotoItem from './PhotoItem';
 import VideoItem from './VideoItem';
@@ -26,6 +27,7 @@ export default props => {
     <div>
       {renderMedia(item)}
       <h3>{titleText}</h3>
+      <time>{moment(Date(date)).format('MMM DD, YYYY')}</time>
       <div>{RichText.render(description)}</div>
     </div>
   );

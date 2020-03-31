@@ -9,15 +9,16 @@ const listItem = css``;
 const link = css`
   display: flex;
   align-items: center;
-  padding: 16px 0;
-  &:hover {
-    h3 {
-      opacity: 0.6;
+  padding: 4px 0;
+  h2 {
+    font-size: 1em;
+    &:hover {
+      opacity: 0.8;
     }
   }
 `;
 const date = css`
-  color: #796e89;
+  font-size: 0.9em;
 `;
 const title = css`
   margin: 0;

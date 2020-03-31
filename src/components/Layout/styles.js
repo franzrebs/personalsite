@@ -1,19 +1,10 @@
 import { css } from '@emotion/core';
-
 const global = css`
   * {
     box-sizing: border-box;
   }
   body {
-    margin: 0;
-    padding: 0;
     background-color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #36313d;
-    text-rendering: optimizelegibility;
-    -webkit-font-smoothing: antialiased;
   }
   img {
     max-width: 100%;
@@ -36,13 +27,11 @@ const root = css`
 
 const main = css`
   flex: 1;
-  padding: 32px 16px;
+  padding: 56px 40px 56px 20px;
 `;
 
 const pageTitle = css``;
 
-const pageContent = css`
-  max-width: 1240px;
-`;
+const pageContent = css``;
 
 export default { global, root, main, pageTitle, pageContent };
