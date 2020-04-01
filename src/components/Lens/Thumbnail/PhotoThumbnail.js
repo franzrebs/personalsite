@@ -1,23 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import styles from './styles';
+import React from 'react';
+import { RichText } from 'prismic-reactjs';
 
-export default ({ album, item, handleLinkClick }) => {
-  const photoDiv = useRef(null);
+export default ({ album, item }) => {
+  const { title, photo_link } = item;
+  const titleText = RichText.asText(title);
 
-  useEffect(() => {
-    const link = photoDiv.current.querySelector('a');
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      handleLinkClick();
-    });
-  }, []);
-
-  const { photo_link } = item;
-  return (
-    <div
-      ref={photoDiv}
-      css={styles.photoItem}
-      dangerouslySetInnerHTML={{ __html: photo_link.html }}
-    />
-  );
+  return <img src={photo_link.url} alt={`thumbnail for ${titleText}`} />;
 };

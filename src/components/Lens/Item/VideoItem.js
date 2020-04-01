@@ -6,7 +6,7 @@ import styles from './styles';
 
 export default ({ videoId }) => {
   return (
-    <div>
+    <div css={styles.video}>
       <YouTube
         videoId={videoId}
         opts={{

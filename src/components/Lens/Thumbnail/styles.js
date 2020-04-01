@@ -2,7 +2,7 @@ import { css } from '@emotion/core';
 import { breakpoints } from '../../../styles/helper';
 
 const root = css`
-  padding: 4px;
+  padding: 8px;
   width: 50%;
   ${breakpoints.md} {
     width: 33.333%;
@@ -33,27 +33,11 @@ const media = css`
   justify-content: center;
   align-items: center;
   img {
-    max-width: none;
+    object-fit: cover;
+    width: 100%;
     height: 100%;
+    margin-bottom: 0;
   }
 `;
 
-const photoItem = css`
-  width: 100%;
-  height: 100%;
-  h1 {
-    display: none;
-  }
-  a {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-  }
-  & > [data-type] {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-export default { root, link, container, media, photoItem };
+export default { root, link, container, media };

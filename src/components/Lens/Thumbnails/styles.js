@@ -4,7 +4,7 @@ const root = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 0 -4px;
+  margin: 0 -8px;
 `;
 
 export default { root };

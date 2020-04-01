@@ -1,21 +1,31 @@
 import { css } from '@emotion/core';
 
-const photoItem = css`
-  h1 {
-    display: none;
-  }
-  a {
-    cursor: default;
-    touch-action: none;
-  }
+const media = css``;
+
+const titleDescription = css`
+  display: flex;
+  margin-top: 32px;
 `;
 
-const videoItem = css`
+const title = css`
+  width: 30%;
+  max-width: 400px;
+  margin-right: 32px;
+`;
+const description = css`
+  flex: 1;
+  margin-left: 32px;
+`;
+
+const photo = css`
+  margin-bottom: 0;
+`;
+
+const video = css`
   .container {
     position: relative;
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
+    padding-top: 66.666%;
   }
   .video {
     position: absolute;
@@ -26,4 +36,4 @@ const videoItem = css`
   }
 `;
 
-export default { photoItem, videoItem };
+export default { media, titleDescription, title, description, photo, video };

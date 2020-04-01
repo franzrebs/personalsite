@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { RichText } from 'prismic-reactjs';
-import moment from 'moment';
 
 import Layout from '../components/Layout';
 import { Item } from '../components/Lens';
@@ -12,7 +11,7 @@ export default ({ data }) => {
 
   const titleText = RichText.asText(item.node.title);
   return (
-    <Layout title={titleText} pageTitle={titleText}>
+    <Layout title={titleText}>
       <Item item={item.node} />
     </Layout>
   );

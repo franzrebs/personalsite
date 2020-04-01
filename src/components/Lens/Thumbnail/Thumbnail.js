@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useRef } from 'react';
 import PhotoThumbnail from './PhotoThumbnail';
 import VideoThumbnail from './VideoThumbnail';
 import { linkResolver } from '../../../utils/linkResolver';
@@ -20,20 +19,13 @@ const renderThumbnail = props => {
 };
 
 export default props => {
-  const linkRef = useRef(null);
   const { item } = props;
-  const handleLinkClick = () => {
-    console.log('handleLinkClick', linkRef.current);
-    linkRef.current.click();
-  };
 
   return (
     <div css={styles.root}>
-      <a ref={linkRef} css={styles.link} href={linkResolver(item._meta)}>
+      <a css={styles.link} href={linkResolver(item._meta)}>
         <div css={styles.container}>
-          <div css={styles.media}>
-            {renderThumbnail({ ...props, handleLinkClick })}
-          </div>
+          <div css={styles.media}>{renderThumbnail(props)}</div>
         </div>
       </a>
     </div>
