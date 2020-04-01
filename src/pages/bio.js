@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { RichText } from 'prismic-reactjs';
 
 import Layout from '../components/Layout';
@@ -11,7 +12,8 @@ export default ({ data }) => {
   const { title, body } = bio.node;
   const titleText = RichText.asText(title);
   return (
-    <Layout title={titleText} pageTitle={titleText}>
+    <Layout title={titleText}>
+      <h1>{titleText}</h1>
       <Slices body={body} />
     </Layout>
   );

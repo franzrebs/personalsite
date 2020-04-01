@@ -8,7 +8,7 @@ export default ({ data }) => {
   const lensAlbums = data.prismic.allLens_albums.edges;
   const lensItems = data.prismic.allLens_items.edges;
   return (
-    <Layout title="Lens" pageTitle="Lens">
+    <Layout title="Lens">
       <AlbumSelector albums={lensAlbums}></AlbumSelector>
       <Thumbnails items={lensItems.map(lensItem => lensItem.node)}></Thumbnails>
     </Layout>

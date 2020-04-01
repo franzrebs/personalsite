@@ -7,7 +7,7 @@ import Sidebar from '../../components/SideBar';
 
 import styles from './styles';
 
-export default ({ children, title, pageTitle }) => {
+export default ({ children, title }) => {
   return (
     <React.Fragment>
       <SEO title={title} />
@@ -15,7 +15,6 @@ export default ({ children, title, pageTitle }) => {
       <div css={styles.root}>
         <Sidebar css={styles.sidebar} />
         <main css={styles.main}>
-          <h1 css={styles.pageTitle}>{pageTitle}</h1>
           <div css={styles.pageContent}>{children}</div>
         </main>
       </div>

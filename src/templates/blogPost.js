@@ -1,10 +1,23 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Date, RichText } from 'prismic-reactjs';
-import moment from 'moment';
+import { RichText } from 'prismic-reactjs';
 
 import Layout from '../components/Layout';
-import Slices from '../components/Slices';
+import BlogPost from '../components/BlogPost';
+
+export default ({ data }) => {
+  const blogPost = data.prismic.allBlog_posts.edges.slice(0, 1).pop();
+  if (!blogPost) return null;
+
+  const title = blogPost.node.title;
+  const titleText = RichText.asText(title);
+
+  return (
+    <Layout title={titleText} pageTitle={titleText}>
+      <BlogPost {...blogPost.node} />
+    </Layout>
+  );
+};
 
 export const query = graphql`
   query BlogPost($uid: String) {
@@ -43,21 +56,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default ({ data }) => {
-  const blogPost = data.prismic.allBlog_posts.edges.slice(0, 1).pop();
-  if (!blogPost) return null;
-
-  const title = blogPost.node.title;
-  const date = moment(Date(blogPost.node.date)).format('MMM DD, YYYY');
-  const body = blogPost.node.body;
-  const titleText = RichText.asText(title);
-  return (
-    <Layout title={titleText} pageTitle={titleText}>
-      <time>{date}</time>
-      <div>
-        <Slices body={body} />
-      </div>
-    </Layout>
-  );
-};
