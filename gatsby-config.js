@@ -38,6 +38,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-emotion`,
     },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        pages: path.join(__dirname, 'src/pages'),
+        components: path.join(__dirname, 'src/components'),
+        utils: path.join(__dirname, 'src/utils'),
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
