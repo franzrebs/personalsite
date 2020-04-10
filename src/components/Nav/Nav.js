@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { LENS_VIEW_ALL } from 'src/constants';
+import { GALLERY_VIEW_ALL } from 'src/constants';
 import styles from './styles';
 
 const isActive = href => {
@@ -17,8 +17,8 @@ export default () => {
       <ul css={styles.list}>
         {[
           { href: '/', name: 'Index' },
-          { href: `/lens?view=${LENS_VIEW_ALL}`, name: 'Lens' },
           { href: '/hands', name: 'Hands' },
+          { href: `/lens/${GALLERY_VIEW_ALL}`, name: 'Lens' },
           { href: '/bio', name: 'Bio' },
           { href: '/feed', name: 'Feed' },
         ].map(({ href, name }) => (

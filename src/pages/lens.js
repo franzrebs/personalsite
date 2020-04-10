@@ -1,33 +1,16 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
-import { Router } from '@reach/router';
 
 import Layout from 'components/Layout';
-import { Lens, PageParamsContextProvider } from 'components/Lens';
+import Gallery from 'components/Gallery';
 
-export default ({ data, location }) => {
+export default ({ data }) => {
   const albums = data.prismic.allLens_albums.edges;
   const items = data.prismic.allLens_items.edges;
-  const renderLensWithContextProvider = useCallback(
-    path => (
-      <PageParamsContextProvider
-        location={location}
-        basepath="/lens"
-        path={path}
-      >
-        <Lens albums={albums} items={items} default />
-      </PageParamsContextProvider>
-    ),
-    []
-  );
 
   return (
     <Layout title="Lens">
-      <Router basepath="/lens">
-        {renderLensWithContextProvider(`/:view`)}
-        {renderLensWithContextProvider(`/:view/:albumUidOrItemUid`)}
-        {renderLensWithContextProvider(`/:view/:albumUid/:itemUid`)}
-      </Router>
+      <Gallery basepath="/lens" albums={albums} items={items} />
     </Layout>
   );
 };

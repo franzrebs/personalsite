@@ -3,15 +3,18 @@ import { jsx } from '@emotion/core';
 import { usePageParamsContext } from '../hooks';
 import PhotoThumbnail from './PhotoThumbnail';
 import VideoThumbnail from './VideoThumbnail';
-import { LENS_MEDIA_TYPE_VIDEO, LENS_MEDIA_TYPE_PHOTO } from 'src/constants';
+import {
+  GALLERY_MEDIA_TYPE_VIDEO,
+  GALLERY_MEDIA_TYPE_PHOTO,
+} from 'src/constants';
 import styles from './styles';
 
 const renderThumbnail = props => {
   const { item } = props;
   switch (item.media_type) {
-    case LENS_MEDIA_TYPE_VIDEO:
+    case GALLERY_MEDIA_TYPE_VIDEO:
       return <VideoThumbnail {...props} />;
-    case LENS_MEDIA_TYPE_PHOTO:
+    case GALLERY_MEDIA_TYPE_PHOTO:
       return <PhotoThumbnail {...props} />;
     default:
       return null;

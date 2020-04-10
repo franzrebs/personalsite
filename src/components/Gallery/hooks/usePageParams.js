@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { navigate, useParams } from '@reach/router';
-import { LENS_VIEW_BY_ALBUM, LENS_VIEW_ALL } from 'src/constants';
+import { GALLERY_VIEW_BY_ALBUM, GALLERY_VIEW_ALL } from 'src/constants';
 
 let _prevPageParams = {};
 const setPrevPageParams = params => {
@@ -24,10 +24,10 @@ const parseParams = params => {
   let itemUid = params.itemUid;
 
   if (!!params.albumUidOrItemUid) {
-    if (params.view === LENS_VIEW_ALL) {
+    if (params.view === GALLERY_VIEW_ALL) {
       itemUid = params.albumUidOrItemUid;
     }
-    if (params.view === LENS_VIEW_BY_ALBUM) {
+    if (params.view === GALLERY_VIEW_BY_ALBUM) {
       albumUid = params.albumUidOrItemUid;
     }
   }

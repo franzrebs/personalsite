@@ -8,19 +8,19 @@ import { usePageParamsContext } from '../hooks';
 import PhotoItem from './PhotoItem';
 import VideoItem from './VideoItem';
 import {
-  LENS_MEDIA_TYPE_VIDEO,
-  LENS_MEDIA_TYPE_PHOTO,
-  LENS_VIEW_ALL,
-  LENS_VIEW_BY_ALBUM,
+  GALLERY_MEDIA_TYPE_VIDEO,
+  GALLERY_MEDIA_TYPE_PHOTO,
+  GALLERY_VIEW_ALL,
+  GALLERY_VIEW_BY_ALBUM,
 } from 'src/constants';
 import styles from './styles';
 
 const renderMedia = item => {
   const { media_type, video_id, photo_link, titleText } = item;
   switch (media_type) {
-    case LENS_MEDIA_TYPE_VIDEO:
+    case GALLERY_MEDIA_TYPE_VIDEO:
       return <VideoItem videoId={video_id} />;
-    case LENS_MEDIA_TYPE_PHOTO:
+    case GALLERY_MEDIA_TYPE_PHOTO:
       return <PhotoItem photoLink={photo_link} titleText={titleText} />;
     default:
       return null;

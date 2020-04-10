@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core';
 
 import { usePageParamsContext } from '../hooks';
 import Thumbnail from '../Thumbnail';
-import { LENS_VIEW_BY_ALBUM, LENS_VIEW_ALL } from 'src/constants';
+import { GALLERY_VIEW_BY_ALBUM, GALLERY_VIEW_ALL } from 'src/constants';
 import styles from './styles';
 
 const getAlbumItems = (albums, albumUid) => {
@@ -14,9 +14,8 @@ const getAlbumItems = (albums, albumUid) => {
 export default ({ items, albums }) => {
   const { pageParams } = usePageParamsContext();
   const { view, albumUid } = pageParams;
-  console.log(pageParams);
   const thumbnails =
-    view === LENS_VIEW_ALL
+    view === GALLERY_VIEW_ALL
       ? items.map(item => item.node)
       : getAlbumItems(albums, albumUid);
 

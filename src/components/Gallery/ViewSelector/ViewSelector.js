@@ -4,18 +4,18 @@ import { jsx } from '@emotion/core';
 import { useParams } from '@reach/router';
 
 import { usePageParamsContext } from '../hooks';
-import { LENS_VIEW_BY_ALBUM, LENS_VIEW_ALL } from 'src/constants';
+import { GALLERY_VIEW_BY_ALBUM, GALLERY_VIEW_ALL } from 'src/constants';
 import styles from './styles';
 
 const viewOptions = {
-  [LENS_VIEW_ALL]: { value: LENS_VIEW_ALL, label: 'All' },
-  [LENS_VIEW_BY_ALBUM]: { value: LENS_VIEW_BY_ALBUM, label: 'By Album' },
+  [GALLERY_VIEW_ALL]: { value: GALLERY_VIEW_ALL, label: 'All' },
+  [GALLERY_VIEW_BY_ALBUM]: { value: GALLERY_VIEW_BY_ALBUM, label: 'By Album' },
 };
 
 const generateSelectorOption = enableByAlbum => {
-  let options = [viewOptions[LENS_VIEW_ALL]];
+  let options = [viewOptions[GALLERY_VIEW_ALL]];
   if (enableByAlbum) {
-    options = [...options, viewOptions[LENS_VIEW_BY_ALBUM]];
+    options = [...options, viewOptions[GALLERY_VIEW_BY_ALBUM]];
   }
   return options;
 };
@@ -25,7 +25,7 @@ export default ({ firstAlbum }) => {
   const { view } = pageParams;
   const handleClick = useCallback(selected => {
     const query = { view: selected };
-    if (selected === LENS_VIEW_BY_ALBUM) {
+    if (selected === GALLERY_VIEW_BY_ALBUM) {
       query.albumUid = firstAlbum.node._meta.uid;
     }
     setPageParams(query);

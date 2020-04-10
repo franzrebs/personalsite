@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from '@reach/router';
 
 import Navigation from '../Navigation';
 import Thumbnails from '../Thumbnails';

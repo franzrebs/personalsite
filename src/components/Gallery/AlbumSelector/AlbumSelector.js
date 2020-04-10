@@ -5,7 +5,7 @@ import { RichText } from 'prismic-reactjs';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 
 import { usePageParamsContext } from '../hooks';
-import { LENS_VIEW_BY_ALBUM } from 'src/constants';
+import { GALLERY_VIEW_BY_ALBUM } from 'src/constants';
 import styles from './styles';
 
 let _prevStyle = { width: 0, marginLeft: 0 };

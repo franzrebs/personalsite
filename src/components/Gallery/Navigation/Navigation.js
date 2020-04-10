@@ -6,7 +6,7 @@ import { useParams } from '@reach/router';
 import { usePageParamsContext } from '../hooks';
 import ViewSelector from '../ViewSelector';
 import AlbumSelector from '../AlbumSelector';
-import { LENS_VIEW_BY_ALBUM } from 'src/constants';
+import { GALLERY_VIEW_BY_ALBUM } from 'src/constants';
 import styles from './styles';
 
 export default ({ albums }) => {
@@ -15,7 +15,7 @@ export default ({ albums }) => {
   return (
     <div css={styles.root}>
       <ViewSelector firstAlbum={albums[0]} />
-      {view === LENS_VIEW_BY_ALBUM && <AlbumSelector albums={albums} />}
+      {view === GALLERY_VIEW_BY_ALBUM && <AlbumSelector albums={albums} />}
     </div>
   );
 };
