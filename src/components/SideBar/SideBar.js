@@ -29,7 +29,9 @@ export default () => {
 
   return (
     <div css={styles.root}>
-      <a href="/">{site_metadata.node.title}</a>
+      <a css={styles.siteName} href="/">
+        {site_metadata.node.title}
+      </a>
       <Nav />
     </div>
   );

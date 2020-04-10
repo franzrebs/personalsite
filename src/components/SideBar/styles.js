@@ -5,4 +5,8 @@ const root = css`
   padding: 56px 40px 0;
 `;
 
-export default { root };
+const siteName = css`
+  font-weight: 700;
+`;
+
+export default { root, siteName };

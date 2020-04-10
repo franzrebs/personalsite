@@ -3,8 +3,8 @@ import { graphql } from 'gatsby';
 import { Date, RichText } from 'prismic-reactjs';
 import moment from 'moment';
 
-import Layout from '../components/Layout';
-import Slices from '../components/Slices';
+import Layout from 'components/Layout';
+import BlogPost from 'components/BlogPost';
 
 export const query = graphql`
   query BlogPost($uid: String) {
@@ -53,11 +53,8 @@ export default ({ data }) => {
   const body = blogPost.node.body;
   const titleText = RichText.asText(title);
   return (
-    <Layout title={titleText} pageTitle={titleText}>
-      <time>{date}</time>
-      <div>
-        <Slices body={body} />
-      </div>
+    <Layout title={titleText}>
+      <BlogPost {...blogPost.node} />
     </Layout>
   );
 };

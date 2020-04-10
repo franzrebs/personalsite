@@ -6,7 +6,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Roboto',
-      styles: ['400', '700'],
+      styles: ['400', '500', '700'],
     },
   ],
   headerFontFamily: ['Roboto', 'Helvetica', 'sans-serif'],

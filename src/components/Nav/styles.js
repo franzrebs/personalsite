@@ -7,7 +7,8 @@ const list = css`
 `;
 
 const listItem = css`
-  padding: 0 4px;
+  padding: 0 8px;
+  margin-bottom: 0;
   li a {
     text-decoration: none;
   }
@@ -19,6 +20,10 @@ const listItem = css`
   }
 `;
 
-const link = css``;
+const link = css`
+  &.active {
+    color: hsla(0, 0%, 0%, 0.4);
+  }
+`;
 
 export default { list, listItem, link };

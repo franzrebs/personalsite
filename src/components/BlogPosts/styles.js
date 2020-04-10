@@ -23,7 +23,7 @@ const date = css`
 const title = css`
   margin: 0;
   margin-left: 24px;
-  font-weight: 700;
+  font-weight: 500;
 `;
 
 export default { list, listItem, link, date, title };
