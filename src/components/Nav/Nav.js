@@ -17,8 +17,8 @@ export default () => {
       <ul css={styles.list}>
         {[
           { href: '/', name: 'Index' },
-          { href: '/hands', name: 'Hands' },
           { href: `/lens/${GALLERY_VIEW_ALL}`, name: 'Lens' },
+          { href: `/hands/${GALLERY_VIEW_ALL}`, name: 'Hands' },
           { href: '/bio', name: 'Bio' },
           { href: '/feed', name: 'Feed' },
         ].map(({ href, name }) => (

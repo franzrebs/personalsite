@@ -29,7 +29,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/lens/*`] },
+      options: { prefixes: [`/lens/*`, `/hands/*`] },
     },
     {
       resolve: 'gatsby-plugin-root-import',
