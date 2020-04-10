@@ -833,7 +833,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.9.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
   integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
@@ -890,7 +890,7 @@
     "@emotion/babel-plugin-jsx-pragmatic" "^0.1.5"
     babel-plugin-emotion "^10.0.27"
 
-"@emotion/cache@^10.0.27":
+"@emotion/cache@^10.0.27", "@emotion/cache@^10.0.9":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"
   integrity sha512-fU2VtSVlHiF27empSbxi1O2JFdNWZO+2NFHfwO0pxgTep6Xa3uGb+3pVKfLww2l/IBGLNEZl5Xf/++A4wAYDYQ==
@@ -900,7 +900,7 @@
     "@emotion/utils" "0.11.3"
     "@emotion/weak-memoize" "0.2.5"
 
-"@emotion/core@^10.0.28":
+"@emotion/core@^10.0.28", "@emotion/core@^10.0.9":
   version "10.0.28"
   resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.0.28.tgz#bb65af7262a234593a9e952c041d0f1c9b9bef3d"
   integrity sha512-pH8UueKYO5jgg0Iq+AmCLxBsvuGtvlmiDCOuv8fGNYn3cowFpLN98L8zO56U0H1PjDIyAlXymgL3Wu7u7v6hbA==
@@ -912,7 +912,7 @@
     "@emotion/sheet" "0.9.4"
     "@emotion/utils" "0.11.3"
 
-"@emotion/css@^10.0.27":
+"@emotion/css@^10.0.27", "@emotion/css@^10.0.9":
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/@emotion/css/-/css-10.0.27.tgz#3a7458198fbbebb53b01b2b87f64e5e21241e14c"
   integrity sha512-6wZjsvYeBhyZQYNrGoR5yPMYbMBNEnanDrqmsqS1mzDm1cOTu12shvl2j4QHNS36UaTE0USIJawCH9C8oW34Zw==
@@ -3959,7 +3959,7 @@ csso@^4.0.2:
   dependencies:
     css-tree "1.0.0-alpha.39"
 
-csstype@^2.2.0, csstype@^2.5.7:
+csstype@^2.2.0, csstype@^2.5.7, csstype@^2.6.7:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.10.tgz#e63af50e66d7c266edb6b32909cfd0aabe03928b"
   integrity sha512-D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w==
@@ -4388,6 +4388,14 @@ dom-helpers@^3.4.0:
   integrity sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==
   dependencies:
     "@babel/runtime" "^7.1.2"
+
+dom-helpers@^5.0.1:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-5.1.4.tgz#4609680ab5c79a45f2531441f1949b79d6587f4b"
+  integrity sha512-TjMyeVUvNEnOnhzs6uAn9Ya47GmMo3qq7m+Lr/3ON0Rs5kHvb8I+SQYjLUSYn7qhEm0QjW0yrBkvz9yOrwwz1A==
+  dependencies:
+    "@babel/runtime" "^7.8.7"
+    csstype "^2.6.7"
 
 dom-serializer@0:
   version "0.2.2"
@@ -5723,6 +5731,54 @@ gatsby-cli@^2.11.3:
     ink "^2.7.1"
     ink-spinner "^3.0.1"
 
+gatsby-cli@^2.11.4:
+  version "2.11.4"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.11.4.tgz#2ce22a0eceff16d283eae5639522bf6596c97192"
+  integrity sha512-+Rrec8glPGqd1nTgkcCrelsh7hfWm/TSjniS8AAypGwmI704UfxfdrwM6LrckpBuwwFnGshS/Y0twjZd+oU/kg==
+  dependencies:
+    "@babel/code-frame" "^7.8.3"
+    "@babel/runtime" "^7.8.7"
+    "@hapi/joi" "^15.1.1"
+    better-opn "^1.0.0"
+    bluebird "^3.7.2"
+    chalk "^2.4.2"
+    clipboardy "^2.2.0"
+    common-tags "^1.8.0"
+    configstore "^5.0.1"
+    convert-hrtime "^3.0.0"
+    core-js "^2.6.11"
+    envinfo "^7.5.0"
+    execa "^3.4.0"
+    fs-exists-cached "^1.0.0"
+    fs-extra "^8.1.0"
+    gatsby-core-utils "^1.1.1"
+    gatsby-telemetry "^1.2.3"
+    hosted-git-info "^3.0.4"
+    is-valid-path "^0.1.1"
+    lodash "^4.17.15"
+    meant "^1.0.1"
+    node-fetch "^2.6.0"
+    object.entries "^1.1.1"
+    opentracing "^0.14.4"
+    pretty-error "^2.1.1"
+    progress "^2.0.3"
+    prompts "^2.3.1"
+    react "^16.8.0"
+    redux "^4.0.5"
+    resolve-cwd "^2.0.0"
+    semver "^6.3.0"
+    signal-exit "^3.0.2"
+    source-map "0.7.3"
+    stack-trace "^0.0.10"
+    strip-ansi "^5.2.0"
+    update-notifier "^3.0.1"
+    uuid "3.4.0"
+    yargs "^12.0.5"
+    yurnalist "^1.1.2"
+  optionalDependencies:
+    ink "^2.7.1"
+    ink-spinner "^3.0.1"
+
 gatsby-core-utils@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.1.1.tgz#3ebe4c6fe277ef8d91e1b708bd65ef4f7dc0928b"
@@ -5770,6 +5826,13 @@ gatsby-page-utils@^0.1.1:
     glob "^7.1.6"
     lodash "^4.17.15"
     micromatch "^3.1.10"
+
+gatsby-plugin-create-client-paths@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.2.1.tgz#6d34aa2b3c153445feb21a03da9d9c3fe2aae72f"
+  integrity sha512-IY7fI3Gr8oufOUVwCqVdoxmh2C+qbTWqPsn0TTgm0LY1rRXagd3n+c0EBxftazNLq4A669fRJpxkGlpIJVqBCA==
+  dependencies:
+    "@babel/runtime" "^7.8.7"
 
 gatsby-plugin-emotion@^4.2.1:
   version "4.2.1"
@@ -5940,6 +6003,29 @@ gatsby-telemetry@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.2.2.tgz#12d7e03373f67e7bd69dedbeda4239f3ff601183"
   integrity sha512-I1RkcbLIR7jg+SRu71FT5c7eEqDScmJ8/sZ/mfYVwARo6Kq6obB0VzlYHVYd+KjdeiuQb6YIHhlxUn37eGq7Vw==
+  dependencies:
+    "@babel/code-frame" "^7.8.3"
+    "@babel/runtime" "^7.8.7"
+    bluebird "^3.7.2"
+    boxen "^4.2.0"
+    configstore "^5.0.1"
+    envinfo "^7.5.0"
+    fs-extra "^8.1.0"
+    gatsby-core-utils "^1.1.1"
+    git-up "4.0.1"
+    is-docker "2.0.0"
+    lodash "^4.17.15"
+    node-fetch "2.6.0"
+    resolve-cwd "^2.0.0"
+    source-map "^0.7.3"
+    stack-trace "^0.0.10"
+    stack-utils "1.0.2"
+    uuid "3.4.0"
+
+gatsby-telemetry@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.2.3.tgz#0b38068bbc85a597afb7ee407fb0240997cec6ef"
+  integrity sha512-butEEIfuGAWZ9cVISrS6XVXMFPweFTDNO2Z5jj+mA1GkHlriahF4BtbVX3b4miQbQW16g2TfzNw/ztwIUfy0RQ==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@babel/runtime" "^7.8.7"
@@ -8330,6 +8416,11 @@ mem@^4.0.0:
     mimic-fn "^2.0.0"
     p-is-promise "^2.0.0"
 
+memoize-one@^5.0.0:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
+  integrity sha512-HKeeBpWvqiVJD57ZUAsJNm71eHTykffzcLZVYWiVfQeI1rJtuEaS7hQiEpWfVVk18donPwJEcFKIkCmPJNOhHA==
+
 memory-fs@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/memory-fs/-/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"
@@ -10180,7 +10271,7 @@ prompts@^2.3.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.5.10, prop-types@^15.5.3, prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.3, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -10306,6 +10397,15 @@ query-string@^5.0.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
+query-string@^6.11.1:
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.11.1.tgz#ab021f275d463ce1b61e88f0ce6988b3e8fe7c2c"
+  integrity sha512-1ZvJOUl8ifkkBxu2ByVM/8GijMIPx+cef7u3yroO3Ogm4DOdZcF5dcrWTIlSHe3Pg/mtlt6/eFjObDfJureZZA==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
@@ -10380,6 +10480,11 @@ rc@^1.2.7, rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-animations@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-animations/-/react-animations-1.0.0.tgz#d96222920dfeabec8984d9b2ef2c5a5aadb40f06"
+  integrity sha512-ePPpVgdKnNEXm+LP1ww5s3n0JzebBw9QdRfxRqogzeg1PDIn6kf0pmvgeTeVZQXXpGmHImkIeTiaQR1O6xjntA==
 
 react-dev-utils@^4.2.3:
   version "4.2.3"
@@ -10485,6 +10590,20 @@ react-hot-loader@^4.12.20:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
+react-icons@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.9.0.tgz#89a00f20a0e02e6bfd899977eaf46eb4624239d5"
+  integrity sha512-gKbYKR+4QsD3PmIHLAM9TDDpnaTsr3XZeK1NTAb6WQQ+gxEdJ0xuCgLq0pxXdS7Utg2AIpcVhM1ut/jlDhcyNg==
+  dependencies:
+    camelcase "^5.0.0"
+
+react-input-autosize@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.2.tgz#fcaa7020568ec206bc04be36f4eb68e647c4d8c2"
+  integrity sha512-jQJgYCA3S0j+cuOwzuCd1OjmBmnZLdqQdiLKRYrsMMzbjUrVDS5RvJUDwJqA7sKuksDuzFtm6hZGKFu7Mjk5aw==
+  dependencies:
+    prop-types "^15.5.8"
+
 react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -10510,12 +10629,36 @@ react-refresh@^0.7.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.7.2.tgz#f30978d21eb8cac6e2f2fde056a7d04f6844dd50"
   integrity sha512-u5l7fhAJXecWUJzVxzMRU2Zvw8m4QmDNHlTrT5uo3KBlYBhmChd7syAakBoay1yIiVhx/8Fi7a6v6kQZfsw81Q==
 
+react-select@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-3.1.0.tgz#ab098720b2e9fe275047c993f0d0caf5ded17c27"
+  integrity sha512-wBFVblBH1iuCBprtpyGtd1dGMadsG36W5/t2Aj8OE6WbByDg5jIFyT7X5gT+l0qmT5TqWhxX+VsKJvCEl2uL9g==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@emotion/cache" "^10.0.9"
+    "@emotion/core" "^10.0.9"
+    "@emotion/css" "^10.0.9"
+    memoize-one "^5.0.0"
+    prop-types "^15.6.0"
+    react-input-autosize "^2.2.2"
+    react-transition-group "^4.3.0"
+
 react-side-effect@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-1.2.0.tgz#0e940c78faba0c73b9b0eba9cd3dda8dfb7e7dae"
   integrity sha512-v1ht1aHg5k/thv56DRcjw+WtojuuDHFUgGfc+bFHOWsF4ZK6C2V57DO0Or0GPsg6+LSTE0M6Ry/gfzhzSwbc5w==
   dependencies:
     shallowequal "^1.0.1"
+
+react-transition-group@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.3.0.tgz#fea832e386cf8796c58b61874a3319704f5ce683"
+  integrity sha512-1qRV1ZuVSdxPlPf4O8t7inxUGpdyO5zG9IoNfJxSO0ImU2A1YWkEQvFPuIPZmMLkg5hYs7vv5mMOyfgSkvAwvw==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react-typography@^0.16.19:
   version "0.16.19"
@@ -11598,6 +11741,11 @@ spdy@^4.0.1:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
+split-on-first@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/split-on-first/-/split-on-first-1.1.0.tgz#f610afeee3b12bce1d0c30425e76398b78249a5f"
+  integrity sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==
+
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -11717,6 +11865,11 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
+
+strict-uri-encode@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
+  integrity sha1-ucczDHBChi9rFC3CdLvMWGbONUY=
 
 string-length@^3.1.0:
   version "3.1.0"

@@ -1,3 +1,4 @@
+const path = require('path');
 require('dotenv').config();
 
 module.exports = {
@@ -5,26 +6,14 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
-        repositoryName: `francesrebollidodotcom`,
-        accessToken: `${process.env.PRISMIC_ACCESS_TOKEN}`,
+        repositoryName: `${process.env.GATSBY_PRISMIC_REPOSITORY}`,
+        accessToken: `${process.env.GATSBY_PRISMIC_ACCESS_TOKEN}`,
         pages: [
           {
             type: `Blog_post`,
             match: `/blog/:uid`,
             path: '/blog-preview',
             component: require.resolve('./src/templates/blogPost.js'),
-          },
-          {
-            type: `Lens_album`,
-            match: `/lens/album/:uid`,
-            path: '/lens-album-preview',
-            component: require.resolve('./src/templates/lensAlbum.js'),
-          },
-          {
-            type: `Lens_item`,
-            match: `/lens/:uid`,
-            path: '/lens-item-preview',
-            component: require.resolve('./src/templates/lensItem.js'),
           },
         ],
       },
@@ -37,6 +26,10 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-emotion`,
+    },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/lens/*`] },
     },
     {
       resolve: 'gatsby-plugin-root-import',

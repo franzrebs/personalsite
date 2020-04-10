@@ -1,18 +1,26 @@
-import React, { useStete, useEffect } from 'react';
+import React from 'react';
+import Navigation from '../Navigation';
+import Thumbnails from '../Thumbnails';
+import Item from '../Item';
+import { usePageQueryContext } from '../hooks';
 
-import { AlbumSelector, Thumbnails } from '../../components/Lens';
+const findItemByUid = (items, itemUid) => {
+  const item = items.filter(i => i.node._meta.uid === itemUid)[0];
+  return item.node;
+};
 
-export default ({ albums }) => {
-  const [items, setItems] = useStete(null);
-  useEffect(() => {});
-
+export default ({ albums, items }) => {
+  const { query } = usePageQueryContext();
+  const { itemUid } = query;
   return (
     <React.Fragment>
-      <AlbumSelector albums={albums}></AlbumSelector>
-      {items === null ? (
-        '...'
+      {!!itemUid ? (
+        <Item item={findItemByUid(items, itemUid)} />
       ) : (
-        <Thumbnails items={items.map(items => items.node)}></Thumbnails>
+        <React.Fragment>
+          <Navigation albums={albums} />
+          <Thumbnails albums={albums} items={items} />
+        </React.Fragment>
       )}
     </React.Fragment>
   );

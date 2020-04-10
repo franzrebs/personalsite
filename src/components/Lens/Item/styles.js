@@ -1,5 +1,18 @@
 import { css } from '@emotion/core';
 
+const back = css`
+  margin-bottom: 20px;
+  a {
+    display: flex;
+    align-items: center;
+  }
+  a i {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-right: 4px;
+  }
+`;
 const media = css``;
 
 const titleDescription = css`
@@ -36,4 +49,12 @@ const video = css`
   }
 `;
 
-export default { media, titleDescription, title, description, photo, video };
+export default {
+  back,
+  media,
+  titleDescription,
+  title,
+  description,
+  photo,
+  video,
+};

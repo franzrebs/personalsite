@@ -1,17 +1,17 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
+import { usePageQueryContext } from '../hooks';
 import PhotoThumbnail from './PhotoThumbnail';
 import VideoThumbnail from './VideoThumbnail';
-import { linkResolver } from '../../../utils/linkResolver';
-import { MEDIA_TYPE_VIDEO, MEDIA_TYPE_PHOTO } from '../constants';
+import { LENS_MEDIA_TYPE_VIDEO, LENS_MEDIA_TYPE_PHOTO } from 'src/constants';
 import styles from './styles';
 
 const renderThumbnail = props => {
   const { item } = props;
   switch (item.media_type) {
-    case MEDIA_TYPE_VIDEO:
+    case LENS_MEDIA_TYPE_VIDEO:
       return <VideoThumbnail {...props} />;
-    case MEDIA_TYPE_PHOTO:
+    case LENS_MEDIA_TYPE_PHOTO:
       return <PhotoThumbnail {...props} />;
     default:
       return null;
@@ -19,11 +19,25 @@ const renderThumbnail = props => {
 };
 
 export default props => {
+  const { query, setQuery } = usePageQueryContext();
   const { item } = props;
+  const handleClick = itemUid => {
+    setQuery({
+      ...query,
+      itemUid: itemUid,
+    });
+  };
 
   return (
     <div css={styles.root}>
-      <a css={styles.link} href={linkResolver(item._meta)}>
+      <a
+        css={styles.link}
+        href="#"
+        onClick={e => {
+          e.preventDefault();
+          handleClick(item._meta.uid);
+        }}
+      >
         <div css={styles.container}>
           <div css={styles.media}>{renderThumbnail(props)}</div>
         </div>

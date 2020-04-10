@@ -1,2 +1,2 @@
-import Selector from './Selector';
-export default Selector;
+import AlbumSelector from './AlbumSelector';
+export default AlbumSelector;
