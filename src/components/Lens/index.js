@@ -1,7 +1,7 @@
 import AlbumSelector from './AlbumSelector';
 import Lens from './Lens';
 import Item from './Item';
-import { PageQueryContextProvider } from './hooks';
+import { PageParamsContextProvider } from './hooks';
 
 export default Lens;
-export { Lens, Item, PageQueryContextProvider };
+export { Lens, Item, PageParamsContextProvider };

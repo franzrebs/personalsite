@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { usePageQueryContext } from '../hooks';
+import { usePageParamsContext } from '../hooks';
 import PhotoThumbnail from './PhotoThumbnail';
 import VideoThumbnail from './VideoThumbnail';
 import { LENS_MEDIA_TYPE_VIDEO, LENS_MEDIA_TYPE_PHOTO } from 'src/constants';
@@ -19,11 +19,11 @@ const renderThumbnail = props => {
 };
 
 export default props => {
-  const { query, setQuery } = usePageQueryContext();
+  const { pageParams, setPageParams } = usePageParamsContext();
   const { item } = props;
   const handleClick = itemUid => {
-    setQuery({
-      ...query,
+    setPageParams({
+      ...pageParams,
       itemUid: itemUid,
     });
   };

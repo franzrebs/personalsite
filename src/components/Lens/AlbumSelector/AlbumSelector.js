@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core';
 import { RichText } from 'prismic-reactjs';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 
-import { usePageQueryContext } from '../hooks';
+import { usePageParamsContext } from '../hooks';
 import { LENS_VIEW_BY_ALBUM } from 'src/constants';
 import styles from './styles';
 
@@ -16,8 +16,8 @@ export default ({ albums }) => {
   const albumsBoxElement = useRef(null);
   const listElement = useRef(null);
   const [style, setStyle] = useState({ ..._prevStyle });
-  const { query, setQuery } = usePageQueryContext();
-  const { albumUid } = query;
+  const { pageParams, setPageParams } = usePageParamsContext();
+  const { albumUid } = pageParams;
 
   const getCurremtIndex = () =>
     albums.findIndex(al => al.node._meta.uid === albumUid);
@@ -48,7 +48,7 @@ export default ({ albums }) => {
 
   const navigateToAlbum = async index => {
     const albumUid = albums[index].node._meta.uid;
-    setQuery({ ...query, albumUid });
+    setPageParams({ ...pageParams, albumUid });
   };
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 
-import { usePageQueryContext } from '../hooks';
+import { usePageParamsContext } from '../hooks';
 import Thumbnail from '../Thumbnail';
 import { LENS_VIEW_BY_ALBUM, LENS_VIEW_ALL } from 'src/constants';
 import styles from './styles';
@@ -12,8 +12,9 @@ const getAlbumItems = (albums, albumUid) => {
 };
 
 export default ({ items, albums }) => {
-  const { query } = usePageQueryContext();
-  const { view, albumUid } = query;
+  const { pageParams } = usePageParamsContext();
+  const { view, albumUid } = pageParams;
+  console.log(pageParams);
   const thumbnails =
     view === LENS_VIEW_ALL
       ? items.map(item => item.node)

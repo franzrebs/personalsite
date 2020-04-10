@@ -1,8 +1,10 @@
 import React from 'react';
+import { useParams } from '@reach/router';
+
 import Navigation from '../Navigation';
 import Thumbnails from '../Thumbnails';
 import Item from '../Item';
-import { usePageQueryContext } from '../hooks';
+import { usePageParamsContext } from '../hooks';
 
 const findItemByUid = (items, itemUid) => {
   const item = items.filter(i => i.node._meta.uid === itemUid)[0];
@@ -10,8 +12,9 @@ const findItemByUid = (items, itemUid) => {
 };
 
 export default ({ albums, items }) => {
-  const { query } = usePageQueryContext();
-  const { itemUid } = query;
+  const { pageParams } = usePageParamsContext();
+  const { itemUid } = pageParams;
+
   return (
     <React.Fragment>
       {!!itemUid ? (

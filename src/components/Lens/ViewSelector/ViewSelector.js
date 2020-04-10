@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import React, { useCallback } from 'react';
-import { jsx, css } from '@emotion/core';
-import Select from 'react-select';
-import { Link } from '@reach/router';
+import { jsx } from '@emotion/core';
+import { useParams } from '@reach/router';
 
-import { usePageQueryContext } from '../hooks';
+import { usePageParamsContext } from '../hooks';
 import { LENS_VIEW_BY_ALBUM, LENS_VIEW_ALL } from 'src/constants';
 import styles from './styles';
 
@@ -22,14 +21,14 @@ const generateSelectorOption = enableByAlbum => {
 };
 
 export default ({ firstAlbum }) => {
-  const { query, setQuery } = usePageQueryContext();
-  const { view } = query;
+  const { pageParams, setPageParams } = usePageParamsContext();
+  const { view } = pageParams;
   const handleClick = useCallback(selected => {
     const query = { view: selected };
     if (selected === LENS_VIEW_BY_ALBUM) {
       query.albumUid = firstAlbum.node._meta.uid;
     }
-    setQuery(query);
+    setPageParams(query);
   }, []);
 
   return (

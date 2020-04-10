@@ -4,7 +4,7 @@ import { Date, RichText } from 'prismic-reactjs';
 import moment from 'moment';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import { usePageQueryContext } from '../hooks';
+import { usePageParamsContext } from '../hooks';
 import PhotoItem from './PhotoItem';
 import VideoItem from './VideoItem';
 import {
@@ -28,15 +28,15 @@ const renderMedia = item => {
 };
 
 export default ({ item }) => {
-  const { query, setQuery } = usePageQueryContext();
+  const { pageParams, setPageParams } = usePageParamsContext();
   const { title, description, date } = item;
   const titleText = RichText.asText(title);
 
   const handleClick = e => {
     e.preventDefault();
-    setQuery({
-      view: query.view,
-      albumUid: query.albumUid,
+    setPageParams({
+      view: pageParams.view,
+      albumUid: pageParams.albumUid,
     });
   };
 

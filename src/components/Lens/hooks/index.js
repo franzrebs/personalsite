@@ -1,7 +1,7 @@
-import usePageQuery from './usePageQuery';
+import usePageParams from './usePageParams';
 import {
-  usePageQueryContext,
-  PageQueryContextProvider,
-} from './PageQueryContext';
+  usePageParamsContext,
+  PageParamsContextProvider,
+} from './PageParamsContext';
 
-export { usePageQuery, usePageQueryContext, PageQueryContextProvider };
+export { usePageParams, usePageParamsContext, PageParamsContextProvider };
