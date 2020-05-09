@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { jsx } from '@emotion/core';
 import { RichText } from 'prismic-reactjs';
 
@@ -17,29 +17,30 @@ export default ({ albums }) => {
   const { pageParams, setPageParams } = usePageParamsContext();
   const { albumUid } = pageParams;
 
-  const getCurremtIndex = () =>
+  const getCurrentIndex = useCallback(() => {
     albums.findIndex(al => al.node._meta.uid === albumUid);
+  }, [albums, albumUid]);
 
   const isLastAlbum = () => {
-    const currentIndex = getCurremtIndex();
+    const currentIndex = getCurrentIndex();
     return currentIndex >= albums.length - 1;
   };
 
   const isFirstAlbum = () => {
-    const currentIndex = getCurremtIndex();
+    const currentIndex = getCurrentIndex();
     return currentIndex < 1;
   };
 
   const handlePrevClick = async () => {
     if (!isFirstAlbum()) {
-      const currentIndex = getCurremtIndex();
+      const currentIndex = getCurrentIndex();
       navigateToAlbum(currentIndex - 1);
     }
   };
 
   const handleNextClick = async () => {
     if (!isLastAlbum()) {
-      const currentIndex = getCurremtIndex();
+      const currentIndex = getCurrentIndex();
       navigateToAlbum(currentIndex + 1);
     }
   };
@@ -50,7 +51,7 @@ export default ({ albums }) => {
   };
 
   useEffect(() => {
-    const currentIndex = getCurremtIndex();
+    const currentIndex = getCurrentIndex();
     const listItems = [...listElement.current.querySelectorAll('li')];
 
     const width = listItems[currentIndex].offsetWidth;
@@ -61,7 +62,7 @@ export default ({ albums }) => {
 
     setPrevStyle({ width, marginLeft });
     setStyle({ width, marginLeft });
-  }, [getCurremtIndex]);
+  }, [getCurrentIndex]);
 
   return (
     <div css={styles.root}>
