@@ -10,6 +10,14 @@ const back = css`
     color: hsla(0, 0%, 0%, 0.6);
   }
 `;
+
+const backBtn = css`
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+`;
+
 const media = css``;
 
 const titleDescription = css`
@@ -50,6 +58,7 @@ const video = css`
 
 export default {
   back,
+  backBtn,
   media,
   titleDescription,
   title,

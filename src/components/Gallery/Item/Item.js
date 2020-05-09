@@ -40,7 +40,7 @@ export default ({ item }) => {
   return (
     <div>
       <div css={styles.back}>
-        <button href="#" onClick={handleClick}>
+        <button css={styles.backBtn} href="#" onClick={handleClick}>
           &#8592;
           <span>Back</span>
         </button>

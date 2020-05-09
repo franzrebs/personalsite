@@ -14,6 +14,11 @@ const root = css`
 
 const link = css`
   display: block;
+  width: 100%;
+  height: 100%;
+  background: none;
+  padding: 0;
+  margin: 0;
 `;
 
 const container = css`
