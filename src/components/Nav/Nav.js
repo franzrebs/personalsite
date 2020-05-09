@@ -1,17 +1,23 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
+import { useLocation } from '@reach/router';
 import { GALLERY_VIEW_ALL } from 'src/constants';
 import styles from './styles';
 
-const isActive = href => {
-  if (href.indexOf('lens') !== -1) {
-    return /^\/lens/.test(window.location.pathname);
+const isActive = (location, href) => {
+  if (/^\/lens/.test(href)) {
+    return /^\/lens/.test(location.pathname);
   }
 
-  return href === window.location.pathname;
+  if (/^\/hands/.test(href)) {
+    return /^\/hands/.test(location.pathname);
+  }
+
+  return href === location.pathname;
 };
 
 export default () => {
+  const location = useLocation();
   return (
     <nav>
       <ul css={styles.list}>
@@ -26,7 +32,7 @@ export default () => {
             <a
               css={styles.link}
               href={href}
-              className={isActive(href) ? 'active' : ''}
+              className={isActive(location, href) ? 'active' : ''}
             >
               {name}
             </a>
