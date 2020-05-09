@@ -5,12 +5,12 @@ const typography = new Typography({
   scaleRatio: 1.8,
   googleFonts: [
     {
-      name: 'Roboto',
-      styles: ['400', '500', '700'],
+      name: 'EB Garamond',
+      styles: ['400', '500', '600'],
     },
   ],
-  headerFontFamily: ['Roboto', 'Helvetica', 'sans-serif'],
-  bodyFontFamily: ['Roboto', 'Helvetica', 'sans-serif'],
+  headerFontFamily: ['EB Garamond', 'serif'],
+  bodyFontFamily: ['EB Garamond', 'serif'],
   includeNormalize: true,
   overrideThemeStyles: ({ rhythm }, options, styles) => ({
     time: {
