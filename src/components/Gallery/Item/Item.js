@@ -9,8 +9,6 @@ import VideoItem from './VideoItem';
 import {
   GALLERY_MEDIA_TYPE_VIDEO,
   GALLERY_MEDIA_TYPE_PHOTO,
-  GALLERY_VIEW_ALL,
-  GALLERY_VIEW_BY_ALBUM,
 } from 'src/constants';
 import styles from './styles';
 
@@ -42,10 +40,10 @@ export default ({ item }) => {
   return (
     <div>
       <div css={styles.back}>
-        <a href="#" onClick={handleClick}>
+        <button href="#" onClick={handleClick}>
           &#8592;
           <span>Back</span>
-        </a>
+        </button>
       </div>
       <div css={styles.media}>{renderMedia({ ...item, titleText })}</div>
       <div css={styles.titleDescription}>

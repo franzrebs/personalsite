@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core';
 
 import { usePageParamsContext } from '../hooks';
 import Thumbnail from '../Thumbnail';
-import { GALLERY_VIEW_BY_ALBUM, GALLERY_VIEW_ALL } from 'src/constants';
+import { GALLERY_VIEW_ALL } from 'src/constants';
 import styles from './styles';
 
 const getAlbumItems = (albums, albumUid) => {

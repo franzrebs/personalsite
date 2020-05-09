@@ -1,7 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
 import { jsx } from '@emotion/core';
-import { useParams } from '@reach/router';
 
 import { usePageParamsContext } from '../hooks';
 import ViewSelector from '../ViewSelector';

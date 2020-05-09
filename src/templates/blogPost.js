@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Date, RichText } from 'prismic-reactjs';
-import moment from 'moment';
+import { RichText } from 'prismic-reactjs';
 
 import Layout from 'components/Layout';
 import BlogPost from 'components/BlogPost';
@@ -49,8 +48,6 @@ export default ({ data }) => {
   if (!blogPost) return null;
 
   const title = blogPost.node.title;
-  const date = moment(Date(blogPost.node.date)).format('MMM DD, YYYY');
-  const body = blogPost.node.body;
   const titleText = RichText.asText(title);
   return (
     <Layout title={titleText}>

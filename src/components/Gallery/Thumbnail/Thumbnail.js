@@ -33,9 +33,8 @@ export default props => {
 
   return (
     <div css={styles.root}>
-      <a
+      <button
         css={styles.link}
-        href="#"
         onClick={e => {
           e.preventDefault();
           handleClick(item._meta.uid);
@@ -44,7 +43,7 @@ export default props => {
         <div css={styles.container}>
           <div css={styles.media}>{renderThumbnail(props)}</div>
         </div>
-      </a>
+      </button>
     </div>
   );
 };

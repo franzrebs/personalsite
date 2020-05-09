@@ -1,9 +1,4 @@
-import { css, keyframes } from '@emotion/core';
-import { slideInDown } from 'react-animations';
-
-const sideInanimation = keyframes`
-${slideInDown}
-`;
+import { css } from '@emotion/core';
 
 const root = css`
   margin-top: -8px;

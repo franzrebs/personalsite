@@ -61,7 +61,7 @@ export default ({ albums }) => {
 
     setPrevStyle({ width, marginLeft });
     setStyle({ width, marginLeft });
-  }, []);
+  }, [getCurremtIndex]);
 
   return (
     <div css={styles.root}>

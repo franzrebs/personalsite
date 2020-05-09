@@ -19,6 +19,7 @@ const generateUrl = (basepath, params) => {
   }
   return url;
 };
+
 const parseParams = params => {
   let albumUid = params.albumUid;
   let itemUid = params.itemUid;
@@ -31,6 +32,7 @@ const parseParams = params => {
       albumUid = params.albumUidOrItemUid;
     }
   }
+
   return {
     view: params.view,
     albumUid,
@@ -62,7 +64,7 @@ export default basepath => {
     } else {
       console.log('ignore');
     }
-  }, [pageParams.view, pageParams.albumUid, pageParams.itemUid]);
+  }, [basepath, pageParams]);
 
   return { pageParams: pageParams, setPageParams: setPageParamsCallback };
 };
