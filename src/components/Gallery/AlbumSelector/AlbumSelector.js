@@ -18,7 +18,7 @@ export default ({ albums }) => {
   const { albumUid } = pageParams;
 
   const getCurrentIndex = useCallback(() => {
-    albums.findIndex(al => al.node._meta.uid === albumUid);
+    return albums.findIndex(al => al.node._meta.uid === albumUid);
   }, [albums, albumUid]);
 
   const isLastAlbum = () => {
