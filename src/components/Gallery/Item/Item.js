@@ -2,7 +2,6 @@
 import { jsx } from '@emotion/core';
 import { Date, RichText } from 'prismic-reactjs';
 import moment from 'moment';
-import { FiArrowLeft } from 'react-icons/fi';
 
 import { usePageParamsContext } from '../hooks';
 import PhotoItem from './PhotoItem';
@@ -44,9 +43,7 @@ export default ({ item }) => {
     <div>
       <div css={styles.back}>
         <a href="#" onClick={handleClick}>
-          <i>
-            <FiArrowLeft />
-          </i>
+          &#8592;
           <span>Back</span>
         </a>
       </div>

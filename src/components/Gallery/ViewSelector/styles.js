@@ -2,9 +2,8 @@ import { css } from '@emotion/core';
 
 const root = css`
   position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center;
 `;

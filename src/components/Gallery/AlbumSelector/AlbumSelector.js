@@ -2,10 +2,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { jsx } from '@emotion/core';
 import { RichText } from 'prismic-reactjs';
-import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 
 import { usePageParamsContext } from '../hooks';
-import { GALLERY_VIEW_BY_ALBUM } from 'src/constants';
 import styles from './styles';
 
 let _prevStyle = { width: 0, marginLeft: 0 };
@@ -74,7 +72,7 @@ export default ({ albums }) => {
           className={isFirstAlbum() ? 'disabled' : ''}
           onClick={handlePrevClick}
         >
-          <IoMdArrowDropleft />
+          &#8592;
         </button>
         <div
           ref={albumsBoxElement}
@@ -99,7 +97,7 @@ export default ({ albums }) => {
           className={isLastAlbum() ? 'disabled' : ''}
           onClick={handleNextClick}
         >
-          <IoMdArrowDropright />
+          &#8594;
         </button>
       </div>
     </div>

@@ -8,6 +8,7 @@ const global = css`
   }
   img {
     max-width: 100%;
+    vartical-align: bottom;
   }
   a {
     &,

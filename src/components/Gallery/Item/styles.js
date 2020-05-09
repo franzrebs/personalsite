@@ -6,11 +6,8 @@ const back = css`
     display: flex;
     align-items: center;
   }
-  a i {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    margin-right: 4px;
+  &:hover {
+    color: hsla(0, 0%, 0%, 0.6);
   }
 `;
 const media = css``;
@@ -21,10 +18,12 @@ const titleDescription = css`
 `;
 
 const title = css`
-  width: 30%;
   max-width: 400px;
   margin-right: 32px;
+  font-weight: 600;
+  font-size: 1.5em;
 `;
+
 const description = css`
   flex: 1;
   margin-left: 32px;

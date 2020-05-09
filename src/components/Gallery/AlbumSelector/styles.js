@@ -6,18 +6,19 @@ ${slideInDown}
 `;
 
 const root = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: -8px;
+  margin-left: -8px;
 `;
 
 const wrapper = css`
   display: flex;
   align-items: center;
 `;
+
 const albums = css`
   overflow: hidden;
 `;
+
 const list = css`
   list-style: none;
   display: flex;
@@ -27,7 +28,6 @@ const list = css`
   li {
     margin-bottom: 0;
     padding: 0 10px;
-    font-size: 1.6rem;
   }
 `;
 
@@ -37,8 +37,8 @@ const button = css`
   outline: none;
   cursor: pointer;
   animation: all 0.2s ease-in;
-  padding: 8px;
-  font-size: 1.6rem;
+  margin: 0.5em 0;
+  padding: 0 8px;
   display: flex;
   align-items: center;
 

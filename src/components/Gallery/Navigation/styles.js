@@ -2,7 +2,8 @@ import { css } from '@emotion/core';
 
 const root = css`
   position: relative;
-  height: 39px;
+  height: 24px;
   margin-bottom: 20px;
 `;
+
 export default { root };
