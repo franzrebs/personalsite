@@ -11,7 +11,7 @@ import styles from './styles';
 
 const renderThumbnail = props => {
   const { item } = props;
-  switch (item.media_type) {
+  switch (item.type) {
     case GALLERY_MEDIA_TYPE_VIDEO:
       return <VideoThumbnail {...props} />;
     case GALLERY_MEDIA_TYPE_PHOTO:
@@ -25,6 +25,7 @@ export default props => {
   const { pageParams, setPageParams } = usePageParamsContext();
   const { item } = props;
   const handleClick = itemUid => {
+    console.log('handleClick', itemUid);
     setPageParams({
       ...pageParams,
       itemUid: itemUid,
@@ -37,7 +38,7 @@ export default props => {
         css={styles.link}
         onClick={e => {
           e.preventDefault();
-          handleClick(item._meta.uid);
+          handleClick(item.slug);
         }}
       >
         <div css={styles.container}>

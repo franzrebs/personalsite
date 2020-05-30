@@ -5,8 +5,18 @@ import Layout from 'components/Layout';
 import Gallery from 'components/Gallery';
 
 export default ({ data }) => {
-  const albums = data.prismic.allHands_albums.edges;
-  const items = data.prismic.allHands_items.edges;
+  if (!data.prismic.allHandss.edges[0].node.body) {
+    return <Layout title="Hands">coming soon...</Layout>;
+  }
+
+  let albums = [];
+  let items = [];
+
+  data.prismic.allHandss.edges[0].node.body.forEach(({ primary }) => {
+    albums = [...albums, primary.album];
+    items = [...items, ...primary.album.body];
+  });
+
   return (
     <Layout title="Hands">
       <Gallery basepath="/hands" albums={albums} items={items} />
@@ -17,47 +27,53 @@ export default ({ data }) => {
 export const query = graphql`
   {
     prismic {
-      allHands_albums {
+      allHandss {
         edges {
           node {
             _meta {
               uid
               type
             }
-            date
-            items {
-              item {
-                ... on PRISMIC_Hands_item {
-                  title
-                  date
-                  _meta {
-                    uid
-                    type
+            body {
+              ... on PRISMIC_HandsBodyAlbum {
+                type
+                label
+                primary {
+                  album {
+                    ... on PRISMIC_Album {
+                      album_title
+                      _linkType
+                      _meta {
+                        type
+                        uid
+                      }
+                      body {
+                        ... on PRISMIC_AlbumBodyPhoto {
+                          type
+                          label
+                          primary {
+                            slug
+                            description
+                            photo_url
+                            title
+                          }
+                        }
+                        ... on PRISMIC_AlbumBodyVideo {
+                          type
+                          label
+                          primary {
+                            slug
+                            description
+                            title
+                            video_id
+                          }
+                        }
+                      }
+                    }
                   }
-                  description
-                  media_type
-                  photo_link
-                  video_id
                 }
               }
             }
-            title
-          }
-        }
-      }
-      allHands_items {
-        edges {
-          node {
-            _meta {
-              type
-              uid
-            }
-            date
-            description
-            media_type
-            photo_link
-            title
-            video_id
           }
         }
       }

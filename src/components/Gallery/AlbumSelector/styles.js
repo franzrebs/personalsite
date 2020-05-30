@@ -1,9 +1,6 @@
 import { css } from '@emotion/core';
 
-const root = css`
-  margin-top: -8px;
-  margin-left: -8px;
-`;
+const root = css``;
 
 const wrapper = css`
   display: flex;
@@ -20,7 +17,9 @@ const list = css`
   align-items: center;
   margin: 0;
   transition: all 0.3s ease;
+
   li {
+    white-space: nowrap;
     margin-bottom: 0;
     padding: 0 10px;
   }

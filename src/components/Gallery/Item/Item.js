@@ -1,7 +1,8 @@
 /** @jsx jsx */
+import { useEffect } from 'react';
 import { jsx } from '@emotion/core';
-import { Date, RichText } from 'prismic-reactjs';
-import moment from 'moment';
+import { RichText } from 'prismic-reactjs';
+import { navigate } from 'gatsby';
 
 import { usePageParamsContext } from '../hooks';
 import PhotoItem from './PhotoItem';
@@ -13,21 +14,31 @@ import {
 import styles from './styles';
 
 const renderMedia = item => {
-  const { media_type, video_id, photo_link, titleText } = item;
-  switch (media_type) {
+  const { type, video_id, photo_url, title } = item;
+  switch (type) {
     case GALLERY_MEDIA_TYPE_VIDEO:
       return <VideoItem videoId={video_id} />;
     case GALLERY_MEDIA_TYPE_PHOTO:
-      return <PhotoItem photoLink={photo_link} titleText={titleText} />;
+      return <PhotoItem photoUrl={photo_url} title={title} />;
     default:
       return null;
   }
 };
 
 export default ({ item }) => {
+  useEffect(() => {
+    if (!item) {
+      navigate('/');
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  if (!item) {
+    return null;
+  }
+
   const { pageParams, setPageParams } = usePageParamsContext();
-  const { title, description, date } = item;
-  const titleText = RichText.asText(title);
+  const { title, description } = item;
 
   const handleClick = e => {
     e.preventDefault();
@@ -45,11 +56,9 @@ export default ({ item }) => {
           <span>Back</span>
         </button>
       </div>
-      <div css={styles.media}>{renderMedia({ ...item, titleText })}</div>
+      <div css={styles.media}>{renderMedia({ ...item, title })}</div>
       <div css={styles.titleDescription}>
-        <h1 css={styles.title}>{`${titleText}, ${moment(Date(date)).format(
-          'YYYY'
-        )}`}</h1>
+        <h1 css={styles.title}>{title}</h1>
         <div css={styles.description}>{RichText.render(description)}</div>
       </div>
     </div>

@@ -29,6 +29,7 @@ const root = css`
 const main = css`
   flex: 1;
   padding: 56px 40px 56px 20px;
+  min-height: 100vh;
 `;
 
 const pageTitle = css``;

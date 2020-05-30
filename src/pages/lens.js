@@ -5,8 +5,17 @@ import Layout from 'components/Layout';
 import Gallery from 'components/Gallery';
 
 export default ({ data }) => {
-  const albums = data.prismic.allLens_albums.edges;
-  const items = data.prismic.allLens_items.edges;
+  if (!data.prismic.allLenss.edges[0].node.body) {
+    return <Layout title="Lens">coming soon...</Layout>;
+  }
+
+  let albums = [];
+  let items = [];
+
+  data.prismic.allLenss.edges[0].node.body.forEach(({ primary }) => {
+    albums = [...albums, primary.album];
+    items = [...items, ...primary.album.body];
+  });
 
   return (
     <Layout title="Lens">
@@ -18,47 +27,53 @@ export default ({ data }) => {
 export const query = graphql`
   {
     prismic {
-      allLens_albums {
+      allLenss {
         edges {
           node {
             _meta {
               uid
               type
             }
-            date
-            items {
-              item {
-                ... on PRISMIC_Lens_item {
-                  title
-                  date
-                  _meta {
-                    uid
-                    type
+            body {
+              ... on PRISMIC_LensBodyAlbum {
+                type
+                label
+                primary {
+                  album {
+                    ... on PRISMIC_Album {
+                      album_title
+                      _linkType
+                      _meta {
+                        uid
+                        type
+                      }
+                      body {
+                        ... on PRISMIC_AlbumBodyVideo {
+                          type
+                          label
+                          primary {
+                            slug
+                            description
+                            title
+                            video_id
+                          }
+                        }
+                        ... on PRISMIC_AlbumBodyPhoto {
+                          type
+                          label
+                          primary {
+                            slug
+                            description
+                            title
+                            photo_url
+                          }
+                        }
+                      }
+                    }
                   }
-                  description
-                  media_type
-                  photo_link
-                  video_id
                 }
               }
             }
-            title
-          }
-        }
-      }
-      allLens_items {
-        edges {
-          node {
-            _meta {
-              type
-              uid
-            }
-            date
-            description
-            media_type
-            photo_link
-            title
-            video_id
           }
         }
       }

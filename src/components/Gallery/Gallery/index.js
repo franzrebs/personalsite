@@ -6,8 +6,14 @@ import Item from '../Item';
 import { usePageParamsContext } from '../hooks';
 
 const findItemByUid = (items, itemUid) => {
-  const item = items.filter(i => i.node._meta.uid === itemUid)[0];
-  return item.node;
+  let item = items.filter(({ primary }) => primary.slug === itemUid)[0];
+  if (item) {
+    item = {
+      type: item.type,
+      ...item.primary,
+    };
+  }
+  return item;
 };
 
 export default ({ albums, items }) => {

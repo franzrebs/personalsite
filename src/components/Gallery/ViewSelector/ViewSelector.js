@@ -18,11 +18,11 @@ export default ({ firstAlbum }) => {
     selected => {
       const query = { view: selected };
       if (selected === GALLERY_VIEW_BY_ALBUM) {
-        query.albumUid = firstAlbum.node._meta.uid;
+        query.albumUid = firstAlbum._meta.uid;
       }
       setPageParams(query);
     },
-    [setPageParams, firstAlbum.node._meta.uid]
+    [setPageParams, firstAlbum._meta.uid]
   );
 
   return (

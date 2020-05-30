@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { jsx } from '@emotion/core';
-import { RichText } from 'prismic-reactjs';
 
 import { usePageParamsContext } from '../hooks';
 import styles from './styles';
@@ -18,7 +17,7 @@ export default ({ albums }) => {
   const { albumUid } = pageParams;
 
   const getCurrentIndex = useCallback(() => {
-    return albums.findIndex(al => al.node._meta.uid === albumUid);
+    return albums.findIndex(al => al._meta.uid === albumUid);
   }, [albums, albumUid]);
 
   const isLastAlbum = () => {
@@ -46,7 +45,7 @@ export default ({ albums }) => {
   };
 
   const navigateToAlbum = async index => {
-    const albumUid = albums[index].node._meta.uid;
+    const albumUid = albums[index]._meta.uid;
     setPageParams({ ...pageParams, albumUid });
   };
 
@@ -54,11 +53,11 @@ export default ({ albums }) => {
     const currentIndex = getCurrentIndex();
     const listItems = [...listElement.current.querySelectorAll('li')];
 
-    const width = listItems[currentIndex].offsetWidth;
+    const width = listItems[currentIndex].clientWidth;
 
     const marginLeft = listItems
       .slice(0, currentIndex)
-      .reduce((total, li) => total - li.offsetWidth, 0);
+      .reduce((total, li) => total - li.clientWidth, 0);
 
     setPrevStyle({ width, marginLeft });
     setStyle({ width, marginLeft });
@@ -86,9 +85,7 @@ export default ({ albums }) => {
             style={{ marginLeft: style.marginLeft }}
           >
             {albums.map(album => (
-              <li key={`album-${album.node._meta.uid}`}>
-                {RichText.asText(album.node.title)}
-              </li>
+              <li key={`album-${album._meta.uid}`}>{album.album_title}</li>
             ))}
           </ul>
         </div>
