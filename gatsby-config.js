@@ -11,9 +11,15 @@ module.exports = {
         pages: [
           {
             type: `Blog_post`,
-            match: `/blog/:uid`,
+            match: `/entry/:uid`,
             path: '/blog-preview',
             component: require.resolve('./src/templates/blogPost.js'),
+          },
+          {
+            type: `Page`,
+            match: `/page/:uid`,
+            path: '/page-preview',
+            component: require.resolve('./src/templates/page.js'),
           },
         ],
       },

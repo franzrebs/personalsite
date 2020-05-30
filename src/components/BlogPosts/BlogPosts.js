@@ -11,7 +11,7 @@ export default ({ blogPosts }) => (
   <ul css={styles.list}>
     {blogPosts.map(({ date, title, _meta }) => {
       return (
-        <li css={styles.listItem} key={`blog-${_meta.uid}`}>
+        <li css={styles.listItem} key={`entry-${_meta.uid}`}>
           <Link css={styles.link} to={linkResolver(_meta)}>
             <time css={styles.date}>
               {moment(Date(date)).format('MMM DD, YYYY')}
