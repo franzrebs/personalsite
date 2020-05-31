@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { jsx, Global } from '@emotion/core';
 
 import SEO from 'components/SEO';
-import Sidebar from 'components/SideBar';
+import SideBar from 'components/SideBar';
 import ComingSoon from 'components/ComingSoon';
 
 import styles from './styles';
@@ -44,7 +44,7 @@ export default ({ children, title }) => {
         <ComingSoon />
       ) : (
         <div css={styles.root}>
-          <Sidebar css={styles.sidebar} />
+          <SideBar css={styles.sidebar} />
           <main css={styles.main}>
             <div css={styles.pageContent}>{children}</div>
           </main>
