@@ -38,19 +38,19 @@ const description = css`
 `;
 
 const photo = css`
+  height: 100%;
   margin-bottom: 0;
 `;
 
 const video = css`
+  height: 100%;
+
   .container {
-    position: relative;
     width: 100%;
-    padding-top: 66.666%;
+    height: 100%;
   }
+
   .video {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
   }

@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { useEffect } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import { jsx } from '@emotion/core';
 import { RichText } from 'prismic-reactjs';
-import { navigate } from 'gatsby';
 
+import { RedirectToNotFound } from 'components/NotFound';
 import { usePageParamsContext } from '../hooks';
 import PhotoItem from './PhotoItem';
 import VideoItem from './VideoItem';
@@ -25,16 +25,26 @@ const renderMedia = item => {
   }
 };
 
+const calculateMediaHeight = () => {
+  return window.innerHeight - 135;
+};
+
 export default ({ item }) => {
-  useEffect(() => {
-    if (!item) {
-      navigate('/');
-    }
-    // eslint-disable-next-line
+  const [mediaHeight, setMediaHeight] = useState(calculateMediaHeight());
+  const handleWindowResize = useCallback(() => {
+    setMediaHeight(calculateMediaHeight());
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, [handleWindowResize]);
+
   if (!item) {
-    return null;
+    return <RedirectToNotFound />;
   }
 
   const { pageParams, setPageParams } = usePageParamsContext();
@@ -56,7 +66,9 @@ export default ({ item }) => {
           <span>Back</span>
         </button>
       </div>
-      <div css={styles.media}>{renderMedia({ ...item, title })}</div>
+      <div css={styles.media} style={{ height: mediaHeight }}>
+        {renderMedia({ ...item, title })}
+      </div>
       <div css={styles.titleDescription}>
         <h1 css={styles.title}>{title}</h1>
         <div css={styles.description}>{RichText.render(description)}</div>

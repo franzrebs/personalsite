@@ -19,6 +19,7 @@ const link = css`
   background: none;
   padding: 0;
   margin: 0;
+  border: none;
 `;
 
 const container = css`

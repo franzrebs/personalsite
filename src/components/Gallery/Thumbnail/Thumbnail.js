@@ -25,7 +25,6 @@ export default props => {
   const { pageParams, setPageParams } = usePageParamsContext();
   const { item } = props;
   const handleClick = itemUid => {
-    console.log('handleClick', itemUid);
     setPageParams({
       ...pageParams,
       itemUid: itemUid,

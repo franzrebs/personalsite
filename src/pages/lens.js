@@ -3,10 +3,15 @@ import { graphql } from 'gatsby';
 
 import Layout from 'components/Layout';
 import Gallery from 'components/Gallery';
+import ComingSoon from 'components/ComingSoon';
 
 export default ({ data }) => {
   if (!data.prismic.allLenss.edges[0].node.body) {
-    return <Layout title="Lens">coming soon...</Layout>;
+    return (
+      <Layout title="Lens">
+        <ComingSoon />
+      </Layout>
+    );
   }
 
   let albums = [];
