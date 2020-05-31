@@ -2,8 +2,8 @@
 import React from 'react';
 import { jsx, Global } from '@emotion/core';
 
-import SEO from '../../components/SEO';
-import Sidebar from '../../components/SideBar';
+import SEO from 'components/SEO';
+import Sidebar from 'components/SideBar';
 
 import styles from './styles';
 

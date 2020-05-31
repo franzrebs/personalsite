@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { useLocation } from '@reach/router';
+
 import { GALLERY_VIEW_ALL } from 'src/constants';
 import styles from './styles';
 

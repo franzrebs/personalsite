@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/Layout';
-import BlogPosts from '../components/BlogPosts';
+import Layout from 'components/Layout';
+import BlogPosts from 'components/BlogPosts';
 
 export default ({ data }) => {
   const blogPosts = data.prismic.allBlog_posts.edges;

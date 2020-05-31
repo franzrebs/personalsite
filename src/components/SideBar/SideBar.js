@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import Nav from '../../components/Nav';
+import Nav from 'components/Nav';
 import styles from './styles';
 
 export default () => {
