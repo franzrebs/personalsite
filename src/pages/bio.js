@@ -2,12 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { RichText } from 'prismic-reactjs';
 
-import Layout from '../components/Layout';
-import Slices from '../components/Slices';
+import Layout from 'components/Layout';
+import Slices from 'components/Slices';
+import { RedirectToNotFound } from 'components/NotFound';
 
 export default ({ data }) => {
   const bio = data.prismic.allBios.edges.slice(0, 1).pop();
-  if (!bio) return null;
+  if (!bio) {
+    return <RedirectToNotFound />;
+  }
 
   const { title, body } = bio.node;
   const titleText = RichText.asText(title);

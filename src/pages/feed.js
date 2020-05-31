@@ -2,12 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { RichText } from 'prismic-reactjs';
 
-import Layout from '../components/Layout';
-import Slices from '../components/Slices';
+import Layout from 'components/Layout';
+import Slices from 'components/Slices';
+import { RedirectToNotFound } from 'components/NotFound';
 
 export default ({ data }) => {
   const feed = data.prismic.allFeeds.edges.slice(0, 1).pop();
-  if (!feed) return null;
+  if (!feed) {
+    return <RedirectToNotFound />;
+  }
 
   const { title, body } = feed.node;
   const titleText = RichText.asText(title);
