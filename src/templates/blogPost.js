@@ -1,9 +1,23 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { RichText } from 'prismic-reactjs';
 
 import Layout from 'components/Layout';
-import BlogPost from 'components/BlogPost';
+import Post from 'components/Post';
+import { RedirectToNotFound } from 'components/NotFound';
+
+export default ({ data }) => {
+  const blogPost = data.prismic.allBlog_posts.edges.slice(0, 1).pop();
+  if (!blogPost) {
+    return <RedirectToNotFound />;
+  }
+
+  const title = blogPost.node.title;
+  return (
+    <Layout title={title}>
+      <Post {...blogPost.node} />
+    </Layout>
+  );
+};
 
 export const query = graphql`
   query BlogPost($uid: String) {
@@ -35,6 +49,13 @@ export const query = graphql`
                   embed
                 }
               }
+              ... on PRISMIC_Blog_postBodyColumns {
+                type
+                label
+                fields {
+                  column
+                }
+              }
             }
           }
         }
@@ -42,16 +63,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default ({ data }) => {
-  const blogPost = data.prismic.allBlog_posts.edges.slice(0, 1).pop();
-  if (!blogPost) return null;
-
-  const title = blogPost.node.title;
-  const titleText = RichText.asText(title);
-  return (
-    <Layout title={titleText}>
-      <BlogPost {...blogPost.node} />
-    </Layout>
-  );
-};

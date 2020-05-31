@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { Link } from 'gatsby';
-import { Date, RichText } from 'prismic-reactjs';
-import moment from 'moment';
 
-import { linkResolver } from '../../utils/linkResolver';
+import { linkResolver } from 'utils/linkResolver';
+import Date from 'components/Date';
 import styles from './styles';
 
 export default ({ blogPosts }) => (
@@ -13,10 +12,8 @@ export default ({ blogPosts }) => (
       return (
         <li css={styles.listItem} key={`entry-${_meta.uid}`}>
           <Link css={styles.link} to={linkResolver(_meta)}>
-            <time css={styles.date}>
-              {moment(Date(date)).format('MMM DD, YYYY')}
-            </time>
-            <h2 css={styles.title}>{RichText.asText(title)}</h2>
+            <Date css={styles.date}>{date}</Date>
+            <h2 css={styles.title}>{title}</h2>
           </Link>
         </li>
       );

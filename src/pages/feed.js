@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { RichText } from 'prismic-reactjs';
 
 import Layout from 'components/Layout';
 import Slices from 'components/Slices';
@@ -13,10 +12,9 @@ export default ({ data }) => {
   }
 
   const { title, body } = feed.node;
-  const titleText = RichText.asText(title);
   return (
-    <Layout title={titleText}>
-      <h1>{titleText}</h1>
+    <Layout title={title}>
+      <h1>{title}</h1>
       <Slices body={body} />
     </Layout>
   );
@@ -48,6 +46,13 @@ export const query = graphql`
                 label
                 primary {
                   embed
+                }
+              }
+              ... on PRISMIC_FeedBodyColumns {
+                type
+                label
+                fields {
+                  column
                 }
               }
             }

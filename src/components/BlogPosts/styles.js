@@ -18,7 +18,7 @@ const link = css`
   }
 `;
 const date = css`
-  font-size: 0.9em;
+  width: 5.4em;
 `;
 const title = css`
   margin: 0;
