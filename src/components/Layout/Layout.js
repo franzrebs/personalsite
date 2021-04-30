@@ -37,7 +37,7 @@ export default ({ children, title }) => {
     <React.Fragment>
       <SEO
         siteMetadata={siteMetadata.node}
-        title={showComingSoon ? 'Coming soon...' : title}
+        title={showComingSoon ? 'Under construction' : title}
       />
       <Global styles={styles.global} />
       {showComingSoon ? (
